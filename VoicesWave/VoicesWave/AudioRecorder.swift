@@ -12,10 +12,22 @@ import AVFoundation
 class AudioRecorder:NSObject {
     private var recorder:AVAudioRecorder?
     var filePath:String
+    var timer:CADisplayLink?
     
     init(fileURLWithPath path:String) {
         filePath = path
         super.init()
+        
+        timer = CADisplayLink.init(target: self, selector: #selector(AudioRecorder.updateVoice))
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
+
+        } catch  {
+            print(error)
+        }
+        
+        
         let url = URL.init(fileURLWithPath: path)
         let settings:[String : Any] = [
             AVFormatIDKey:kAudioFormatAppleIMA4,
@@ -38,10 +50,18 @@ class AudioRecorder:NSObject {
     
     func startRecord() {
         recorder?.record()
+        timer?.add(to: RunLoop.current, forMode: .commonModes)
     }
     func stopRecord() {
         recorder?.stop()
-
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    func updateVoice(){
+        recorder?.updateMeters()
+        var power = recorder?.averagePower(forChannel: 0)
+        print("power: \(power)")
     }
 }
 

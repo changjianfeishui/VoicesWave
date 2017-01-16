@@ -15,7 +15,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dir = NSString(string: NSSearchPathForDirectoriesInDomains(.documentationDirectory, .userDomainMask, true).first!)
+       // let dir = NSString(string: NSSearchPathForDirectoriesInDomains(.documentationDirectory, .userDomainMask, true).first!)
+        
+        let dir = NSString(string: NSTemporaryDirectory())
         let path = dir.appendingPathComponent("memo.caf")
         recorder = AudioRecorder.init(fileURLWithPath: path)
     }

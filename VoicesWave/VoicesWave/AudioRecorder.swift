@@ -11,13 +11,10 @@ import AVFoundation
 
 class AudioRecorder:NSObject {
     private var recorder:AVAudioRecorder?
-    var filePath:String
     var timer:CADisplayLink?
     
     init(fileURLWithPath path:String) {
-        filePath = path
         super.init()
-        
         
         let url = URL.init(fileURLWithPath: path)
         let settings:[String : Any] = [
@@ -25,8 +22,15 @@ class AudioRecorder:NSObject {
             AVSampleRateKey:44100.0,
             AVNumberOfChannelsKey:1,
             AVEncoderBitDepthHintKey:16,
-            AVEncoderAudioQualityKey:AVAudioQuality.medium
+            AVEncoderAudioQualityKey:AVAudioQuality.medium.rawValue
         ]
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
+            
+        } catch  {
+            print(error)
+        }
         
         do {
             try recorder = AVAudioRecorder(url: url, settings: settings)
@@ -37,6 +41,7 @@ class AudioRecorder:NSObject {
         recorder?.delegate = self
         recorder?.isMeteringEnabled = true
         recorder?.prepareToRecord()
+
     }
     
     func startRecord() {

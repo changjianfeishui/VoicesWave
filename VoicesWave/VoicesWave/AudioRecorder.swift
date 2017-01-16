@@ -18,15 +18,6 @@ class AudioRecorder:NSObject {
         filePath = path
         super.init()
         
-        timer = CADisplayLink.init(target: self, selector: #selector(AudioRecorder.updateVoice))
-        
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
-
-        } catch  {
-            print(error)
-        }
-        
         
         let url = URL.init(fileURLWithPath: path)
         let settings:[String : Any] = [
@@ -50,6 +41,7 @@ class AudioRecorder:NSObject {
     
     func startRecord() {
         recorder?.record()
+        timer = CADisplayLink.init(target: self, selector: #selector(AudioRecorder.updateVoice))
         timer?.add(to: RunLoop.current, forMode: .commonModes)
     }
     func stopRecord() {

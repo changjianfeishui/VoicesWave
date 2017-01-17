@@ -13,6 +13,7 @@
 		37290C0F1E2CBB6A0075777D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37290C0E1E2CBB6A0075777D /* Assets.xcassets */; };
 		37290C121E2CBB6A0075777D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37290C101E2CBB6A0075777D /* LaunchScreen.storyboard */; };
 		37290C1A1E2CCF530075777D /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37290C191E2CCF530075777D /* AudioRecorder.swift */; };
+		373DE6091E2DF98400D0006D /* VoiceWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373DE6081E2DF98400D0006D /* VoiceWaveView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		37290C111E2CBB6A0075777D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37290C131E2CBB6A0075777D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37290C191E2CCF530075777D /* AudioRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		373DE6081E2DF98400D0006D /* VoiceWaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceWaveView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		37290C061E2CBB6A0075777D /* VoicesWave */ = {
 			isa = PBXGroup;
 			children = (
+				373DE6081E2DF98400D0006D /* VoiceWaveView.swift */,
 				37290C191E2CCF530075777D /* AudioRecorder.swift */,
 				37290C071E2CBB6A0075777D /* AppDelegate.swift */,
 				37290C091E2CBB6A0075777D /* ViewController.swift */,
@@ -142,6 +145,7 @@
 			files = (
 				37290C1A1E2CCF530075777D /* AudioRecorder.swift in Sources */,
 				37290C0A1E2CBB6A0075777D /* ViewController.swift in Sources */,
+				373DE6091E2DF98400D0006D /* VoiceWaveView.swift in Sources */,
 				37290C081E2CBB6A0075777D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

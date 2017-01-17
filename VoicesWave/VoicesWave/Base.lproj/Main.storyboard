@@ -22,22 +22,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KT7-9j-rVh">
-                                <rect key="frame" x="147" y="587" width="81" height="30"/>
+                                <rect key="frame" x="147" y="541" width="81" height="30"/>
                                 <state key="normal" title="startRecord"/>
                                 <connections>
                                     <action selector="recordBtnOnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NFW-TK-zNI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SE8-oD-S1Z">
+                                <rect key="frame" x="154" y="589" width="68" height="30"/>
+                                <state key="normal" title="startDraw"/>
+                                <connections>
+                                    <action selector="drawBtnOnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ey0-0w-McP"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MH0-tG-cHh" customClass="VoiceWaveView" customModule="VoicesWave" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="233.5" width="375" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="FHA-T9-OUO"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KT7-9j-rVh" secondAttribute="bottom" constant="50" id="1ZI-fr-wkg"/>
-                            <constraint firstItem="KT7-9j-rVh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NSi-nW-Pon"/>
+                            <constraint firstItem="MH0-tG-cHh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="OVP-gB-icP"/>
+                            <constraint firstItem="SE8-oD-S1Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X5Y-BI-xAI"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SE8-oD-S1Z" secondAttribute="bottom" constant="48" id="kaE-hm-Hkg"/>
+                            <constraint firstItem="MH0-tG-cHh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="l6T-Xu-QMM"/>
+                            <constraint firstItem="SE8-oD-S1Z" firstAttribute="top" secondItem="KT7-9j-rVh" secondAttribute="bottom" constant="18" id="oWS-I3-SWL"/>
+                            <constraint firstItem="KT7-9j-rVh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="p53-CS-tUZ"/>
+                            <constraint firstAttribute="trailing" secondItem="MH0-tG-cHh" secondAttribute="trailing" id="q7K-cu-Sph"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="waveView" destination="MH0-tG-cHh" id="usV-CU-t0E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="34.632683658170919"/>
         </scene>
     </scenes>
 </document>

@@ -11,7 +11,6 @@ import AVFoundation
 
 class AudioRecorder:NSObject {
     private var recorder:AVAudioRecorder?
-    var timer:CADisplayLink?
     
     init(fileURLWithPath path:String) {
         super.init()
@@ -46,20 +45,24 @@ class AudioRecorder:NSObject {
     
     func startRecord() {
         recorder?.record()
-        timer = CADisplayLink.init(target: self, selector: #selector(AudioRecorder.updateVoice))
-        timer?.add(to: RunLoop.current, forMode: .commonModes)
     }
     func stopRecord() {
         recorder?.stop()
-        timer?.invalidate()
-        timer = nil
+
     }
     
-    func updateVoice(){
-        recorder?.updateMeters()
-        var power = recorder?.averagePower(forChannel: 0)
-        print("power: \(power)")
+    func isRecording() ->  Bool{
+        return (recorder?.isRecording)!
     }
+    
+    func updateVoiceMeters() -> Float {
+        recorder?.updateMeters()
+        let power = recorder?.averagePower(forChannel: 0)
+        print("power: \(power)")
+        return power!
+    }
+    
+
 }
 
 

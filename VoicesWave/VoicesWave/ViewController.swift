@@ -45,19 +45,6 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func drawBtnOnClick(_ sender: UIButton) {
-        let state = recorder?.isRecording()
-        
-        guard state! == true else {
-            let alert = UIAlertController.init(title: nil, message: "请先开启录制", preferredStyle: .alert)
-            let action = UIAlertAction.init(title: "确定", style: .default, handler: nil)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-            return
-        }
-    }
-    
-    
 }
 
 

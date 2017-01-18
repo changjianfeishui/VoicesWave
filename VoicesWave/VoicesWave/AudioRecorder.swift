@@ -58,7 +58,6 @@ class AudioRecorder:NSObject {
     func updateVoiceMeters() -> Float {
         recorder?.updateMeters()
         let power = recorder?.averagePower(forChannel: 0)
-        print("power: \(power)")
         return power!
     }
     
